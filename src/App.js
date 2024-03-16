@@ -22,7 +22,6 @@ function App() {
                 src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
                 crossOrigin></script>
 
-            <script>var Alert = ReactBootstrap.Alert;</script>
 
             <AppRouter></AppRouter>
         </div>

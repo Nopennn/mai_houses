@@ -37,6 +37,7 @@ const AppRouter = () => {
                         <Route path="/ad" element={<Ad/>}/>
                         <Route path="/auth" element={<Auth/>}/>
                         <Route path="/" element={<Main/>}/>
+                        <Route path="/user" element={<Main/>}/>
                     </Routes>
                 </main>
             </Router>
