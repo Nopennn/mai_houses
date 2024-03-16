@@ -4,17 +4,7 @@ import AppRouter from "./components/AppRouter";
 
 
 function App() {
-    const [users, setUsers] = useState(0)
-
-    let increment = () => {
-        setUsers(users + 1)
-    }
-    let decrement = () => {
-        setUsers(users - 1)
-    }
-
     return (
-
         <div className="App">
             <link
                 rel="stylesheet"
@@ -35,9 +25,6 @@ function App() {
             <script>var Alert = ReactBootstrap.Alert;</script>
 
             <AppRouter></AppRouter>
-            <h1>{users}</h1>
-            <button onClick={increment}>Increment</button>
-            <button onClick={decrement}>Decrement</button>
         </div>
     );
 }
