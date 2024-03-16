@@ -2,8 +2,10 @@ import React from 'react';
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar';
 import Ad from "../pages/Ad";
-import Auth from "../pages/Auth";
+import Signup from "../pages/Signup";
 import Main from "../pages/Main";
+import Signin from "../pages/Signin";
+import Profile from "../pages/Profile";
 
 const AppRouter = () => {
     return (
@@ -22,11 +24,11 @@ const AppRouter = () => {
                             </li>
 
                             <li className="nav-item my-class">
-                                <Link to="/auth" className="nav-link">Войти</Link>
+                                <Link to="/signin" className="nav-link">Войти</Link>
                             </li>
 
                             <li className="nav-item justify-content-end">
-                                <Link to="/auth" className="nav-link">Зарегистрироваться</Link>
+                                <Link to="/signup" className="nav-link">Зарегистрироваться</Link>
                             </li>
                         </ul>
                     </div>
@@ -34,10 +36,11 @@ const AppRouter = () => {
 
                 <main>
                     <Routes>
-                        <Route path="/ad" element={<Ad/>}/>
-                        <Route path="/auth" element={<Auth/>}/>
                         <Route path="/" element={<Main/>}/>
-                        <Route path="/user" element={<Main/>}/>
+                        <Route path="/signup" element={<Signup/>}/>
+                        <Route path="/signin" element={<Signin/>}/>
+                        <Route path="/ad" element={<Ad/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
                     </Routes>
                 </main>
             </Router>
