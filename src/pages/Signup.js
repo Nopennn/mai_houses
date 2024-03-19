@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from "axios";
 
 const Signup = () => {
+    const [state, setState] = useState(1)
     const [userInfo, setUserInfo] = useState({
         login: "",
         password: "",
@@ -17,16 +18,16 @@ const Signup = () => {
     })
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const [name, setName] = useState("Ваше имя")
+    const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
-    const [email, setEmail] = useState("")
-    const [phone, setPhone] = useState("")
-    const [age, setAge] = useState("")
-    const [gender, setGender] = useState("")
-    const [about, setAbout] = useState("")
-    const [wanted, setWanted] = useState("")
+    const [email, setEmail] = useState("none")
+    const [phone, setPhone] = useState("none")
+    const [age, setAge] = useState("none")
+    const [gender, setGender] = useState("none")
+    const [about, setAbout] = useState("none")
+    const [wanted, setWanted] = useState("none")
     const postSignUpData = (login, password, name, surname, email, phone, age, gender, about, wanted) => {
-        axios.post('http://localhost:3000/user/signup', {
+        axios.post('https://mai-houses.onrender.com/user/signup', {
             login: login,
             password: password,
             name: name,
@@ -48,23 +49,56 @@ const Signup = () => {
             });
     }
 
+    function SignUpForm({state}) {
+        if (state) {
+            return (
+                <div>
+                    <label htmlFor="login">Логин</label>
+                    <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
+                    <label htmlFor="password">Пароль</label>
+                    <input type="password" value={password} id="password"
+                           onChange={event => setPassword(event.target.value)}/>
+                    <button onClick={() => {
+                        setState(0)
+                        console.log(state)
+                    }}>
+                        Далее
+                    </button>
+                </div>
+            )
+        } else return (
+            <div>
+                <h3>{name}</h3>
+                <label htmlFor="name">Имя</label>
+                <input type="text" value={name} id="name" onChange={event => setName(event.target.value)}/>
+                <label htmlFor="surname">Фамилия</label>
+                <input type="text" value={surname} id="surname" onChange={event => setSurname(event.target.value)}/>
+                <label htmlFor="email">Email</label>
+                <input type="email" value={email} id="email" onChange={event => setEmail(event.target.value)}/>
+                <label htmlFor="phone">Телефон</label>
+                <input type="tel" value={phone} id="phone" onChange={event => setPhone(event.target.value)}/>
+                <label htmlFor="gender">Пол</label>
+                <select name="select" value={gender} defaultValue={"М"} onChange={event => setGender(event.target.value)}>
+                    <option value="М">М</option>
+                    <option value="Ж">Ж</option>
+                </select>
+                <button onClick={() => setState(1)}>
+                    Назад
+                </button>
+                <button
+                    onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>
+                    Зарегистрироваться!
+                </button>
+            </div>
+        )
+    }
+
     return (
         <div>
             Регистрация
 
             <h1>Имя из ответа сервера: {userInfo.name}</h1>
-            <input type="text" value={login} onChange={event => setLogin(event.target.value)}/>
-            <input type="text" value={password} onChange={event => setPassword(event.target.value)}/>
-            <h3>{name}</h3>
-            <input type="text" value={name} onChange={event => setName(event.target.value)}/>
-            <input type="text" value={surname} onChange={event => setSurname(event.target.value)}/>
-            <input type="text" value={email} onChange={event => setEmail(event.target.value)}/>
-            <input type="text" value={phone} onChange={event => setPhone(event.target.value)}/>
-            <input type="text" value={age} onChange={event => setAge(event.target.value)}/>
-            <input type="text" value={gender} onChange={event => setGender(event.target.value)}/>
-            <input type="text" value={about} onChange={event => setAbout(event.target.value)}/>
-            <input type="text" value={wanted} onChange={event => setWanted(event.target.value)}/>
-            <button onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>Зарегистрироваться!</button>
+            <SignUpForm state = {state}/>
         </div>
     );
 };
