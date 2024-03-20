@@ -2,20 +2,7 @@ import React, {useState} from 'react';
 import axios from "axios";
 
 const Signup = () => {
-    const [state, setState] = useState(1)
-    const [userInfo, setUserInfo] = useState({
-        login: "",
-        password: "",
-        name: "",
-        surname: "",
-        email: "",
-        phone: "",
-        age: "",
-        gender: "",
-        about: "",
-        wanted: "",
-        tags: []
-    })
+    const [serverResponse, setServerResponse] = useState({})
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
@@ -41,7 +28,7 @@ const Signup = () => {
             tags: []
         })
             .then(function (response) {
-                setUserInfo(response.data)
+                setServerResponse(response.data)
                 console.log(response)
             })
             .catch(function (error) {
@@ -49,8 +36,8 @@ const Signup = () => {
             });
     }
 
-    function SignUpForm({state}) {
-        if (state) {
+    function SignUpForm() {
+        if (true) {
             return (
                 <div>
                     <label htmlFor="login">Логин</label>
@@ -58,37 +45,37 @@ const Signup = () => {
                     <label htmlFor="password">Пароль</label>
                     <input type="password" value={password} id="password"
                            onChange={event => setPassword(event.target.value)}/>
-                    <button onClick={() => {
-                        setState(0)
-                        console.log(state)
-                    }}>
-                        Далее
-                    </button>
+                    {/*<button onClick={() => {*/}
+                    {/*    setState(0)*/}
+                    {/*    console.log(state)*/}
+                    {/*}}>*/}
+                    {/*    Далее*/}
+                    {/*</button>*/}
                 </div>
             )
         } else return (
             <div>
-                <h3>{name}</h3>
-                <label htmlFor="name">Имя</label>
-                <input type="text" value={name} id="name" onChange={event => setName(event.target.value)}/>
-                <label htmlFor="surname">Фамилия</label>
-                <input type="text" value={surname} id="surname" onChange={event => setSurname(event.target.value)}/>
-                <label htmlFor="email">Email</label>
-                <input type="email" value={email} id="email" onChange={event => setEmail(event.target.value)}/>
-                <label htmlFor="phone">Телефон</label>
-                <input type="tel" value={phone} id="phone" onChange={event => setPhone(event.target.value)}/>
-                <label htmlFor="gender">Пол</label>
-                <select name="select" value={gender} defaultValue={"М"} onChange={event => setGender(event.target.value)}>
-                    <option value="М">М</option>
-                    <option value="Ж">Ж</option>
-                </select>
-                <button onClick={() => setState(1)}>
-                    Назад
-                </button>
-                <button
-                    onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>
-                    Зарегистрироваться!
-                </button>
+                {/*<h3>{name}</h3>*/}
+                {/*<label htmlFor="name">Имя</label>*/}
+                {/*<input type="text" value={name} id="name" onChange={event => setName(event.target.value)}/>*/}
+                {/*<label htmlFor="surname">Фамилия</label>*/}
+                {/*<input type="text" value={surname} id="surname" onChange={event => setSurname(event.target.value)}/>*/}
+                {/*<label htmlFor="email">Email</label>*/}
+                {/*<input type="email" value={email} id="email" onChange={event => setEmail(event.target.value)}/>*/}
+                {/*<label htmlFor="phone">Телефон</label>*/}
+                {/*<input type="tel" value={phone} id="phone" onChange={event => setPhone(event.target.value)}/>*/}
+                {/*<label htmlFor="gender">Пол</label>*/}
+                {/*<select name="select" value={gender} defaultValue={"М"} onChange={event => setGender(event.target.value)}>*/}
+                {/*    <option value="М">М</option>*/}
+                {/*    <option value="Ж">Ж</option>*/}
+                {/*</select>*/}
+                {/*<button onClick={() => setState(1)}>*/}
+                {/*    Назад*/}
+                {/*</button>*/}
+                {/*<button*/}
+                {/*    onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>*/}
+                {/*    Зарегистрироваться!*/}
+                {/*</button>*/}
             </div>
         )
     }
@@ -96,9 +83,17 @@ const Signup = () => {
     return (
         <div>
             Регистрация
+            <label htmlFor="login">Логин</label>
+            <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
+            <label htmlFor="password">Пароль</label>
+            <input type="password" value={password} id="password"
+                   onChange={event => setPassword(event.target.value)}/>
+            <button
+                onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>
+                Зарегистрироваться!
+            </button>
 
-            <h1>Имя из ответа сервера: {userInfo.name}</h1>
-            <SignUpForm state = {state}/>
+            <h1>Ответ сервера: {serverResponse.message}</h1>
         </div>
     );
 };
