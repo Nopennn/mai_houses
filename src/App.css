@@ -10,8 +10,21 @@
 /*  color: white;*/
 /*}*/
 
-.navbar-nav {
+ul.link-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
+li.nav-item {
+    float: left;
+}
+a {
+    color: hotpink;
+    font-size: larger;
+}
+a:hover {
+    color: brown;
 }
 
 
