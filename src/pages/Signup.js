@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import '../App.css';
 
 const Signup = () => {
     const [serverResponse, setServerResponse] = useState({})
@@ -81,17 +82,23 @@ const Signup = () => {
     }
 
     return (
-        <div>
-            Регистрация
-            <label htmlFor="login">Логин</label>
-            <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
-            <label htmlFor="password">Пароль</label>
-            <input type="password" value={password} id="password"
+        <div className="signup">
+            <p>
+                Регистрация
+            </p>
+
+            {/*<label htmlFor="login">Логин</label>*/}
+            <input type="text" value={login} id="login" placeholder="Логин" onChange={event => setLogin(event.target.value)}/>
+            {/*<label htmlFor="password">Пароль</label>*/}
+            <input type="password" value={password} id="password" placeholder="Пароль"
                    onChange={event => setPassword(event.target.value)}/>
-            <button
-                onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>
-                Зарегистрироваться!
-            </button>
+            <p>
+                <button
+                    onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>
+                    Зарегистрироваться!
+                </button>
+            </p>
+
 
             <h1>Ответ сервера: {serverResponse.message}</h1>
         </div>
