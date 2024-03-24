@@ -12,25 +12,25 @@ const AppRouter = () => {
             <Router>
                 <nav className="navbar">
                     <ul className="link-list left-links">
-                        <li className="nav-item">
+                        <li className="nav-item left-link">
                             <Link to="/" className="nav-link main-link">Главная</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/ad" className="nav-link">Объявления</Link>
+                        <li className="nav-item left-link">
+                            <Link to="/ad" className="nav-link ">Объявления</Link>
                         </li>
                     </ul>
 
                     <ul className="link-list right-links">
-                        <li className="nav-item">
+                        <li className="nav-item right-link">
                             <Link to="/signin" className="nav-link">Войти</Link>
                         </li>
 
-                        <li className="nav-item">
+                        <li className="nav-item right-link">
                             <Link to="/signup" className="nav-link">Зарегистрироваться</Link>
                         </li>
                     </ul>
                 </nav>
-
+                <br/><br/>
                 <main>
                     <Routes>
                         <Route path="/" element={<Main/>}/>
