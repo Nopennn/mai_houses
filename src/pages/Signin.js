@@ -23,6 +23,7 @@ const Signin = () => {
                 }
                 let cook = Cookies.get("auth_token")
                 console.log(cook)
+                window.location.href = 'http://localhost:2000/profile';
             })
             .catch(function (error) {
                 console.log(error);
