@@ -46,6 +46,31 @@ a:hover {
     border-color: blue;
 }
 
+button {
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    border: solid;
+    border-radius: 12px;
+    border-color: #FF8959;
+    background-color: #FF8959;
+    transition: all .2s linear;
+}
+button:hover {
+    background-color: blue;
+    border-color: blue;
+}
+p.description {
+    font-weight: bold;
+    font-size: larger;
+    padding: 12px 20px;
+    margin: 5px;
+}
+span.title {
+    color: blue;
+}
+
 div.signup {
     margin-top: 90px;
     font-size: larger;

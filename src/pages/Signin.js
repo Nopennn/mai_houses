@@ -30,10 +30,10 @@ const Signin = () => {
     }
     return (
         <div className="signin">
+            <br></br><br></br><br></br><br></br>
             Вход
-            <label htmlFor="login">Логин</label>
+            <br></br>
             <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
-            <label htmlFor="password">Пароль</label>
             <input type="password" value={password} id="password"
                    onChange={event => setPassword(event.target.value)}/>
             <button
