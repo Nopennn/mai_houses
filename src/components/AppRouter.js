@@ -5,6 +5,7 @@ import Signup from "../pages/Signup";
 import Main from "../pages/Main";
 import Signin from "../pages/Signin";
 import Profile from "../pages/Profile";
+import MakeAd from "../pages/MakeAd";
 
 const AppRouter = () => {
     return (
@@ -37,7 +38,8 @@ const AppRouter = () => {
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/signin" element={<Signin/>}/>
                         <Route path="/ad" element={<Ad/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/profile/*" element={<Profile/>}/>
+                        <Route path="/makead" element={<MakeAd/>}/>
                     </Routes>
                 </main>
             </Router>

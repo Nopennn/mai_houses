@@ -12,6 +12,7 @@ const Signin = () => {
             password: password
         })
             .then(function (response) {
+                console.log(login)
                 setServerResponse(response.data)
                 console.log(response)
                 Cookies.set("auth_token", response.data.auth_token, { expires: 7 })
@@ -23,7 +24,7 @@ const Signin = () => {
                 }
                 let cook = Cookies.get("auth_token")
                 console.log(cook)
-                window.location.href = 'http://localhost:2000/profile';
+                // window.location.href = 'http://localhost:2000/profile';
             })
             .catch(function (error) {
                 console.log(error);
