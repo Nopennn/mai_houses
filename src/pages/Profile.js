@@ -32,6 +32,9 @@ const Profile = () => {
                 <li className="nav-item right-link">
                     <Link to="/makead" className="nav-link">Разместить объявление</Link>
                 </li>
+                <li className="nav-item right-link">
+                    <Link to="/profileupd" className="nav-link">Редактировать профиль</Link>
+                </li>
             </ul>
         </div>
     );

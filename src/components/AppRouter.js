@@ -6,6 +6,7 @@ import Main from "../pages/Main";
 import Signin from "../pages/Signin";
 import Profile from "../pages/Profile";
 import MakeAd from "../pages/MakeAd";
+import UpdateProfile from "../pages/UpdateProfile";
 
 const AppRouter = () => {
     return (
@@ -40,6 +41,7 @@ const AppRouter = () => {
                         <Route path="/ad" element={<Ad/>}/>
                         <Route path="/profile/*" element={<Profile/>}/>
                         <Route path="/makead" element={<MakeAd/>}/>
+                        <Route path="/profileupd" element={<UpdateProfile/>}/>
                     </Routes>
                 </main>
             </Router>
