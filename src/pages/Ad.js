@@ -7,7 +7,7 @@ const Ad = () => {
     const [adsInfo, setAdsInfo] = useState({key: "valueeee"})
 
     window.onload = function () {
-        axios.post('https://mai-houses.onrender.com/ad', {
+        axios.post('https://mai-houses.onrender.com/houses', {
             token: Cookies.get("auth_token")
         })
             .then(function (response) {
