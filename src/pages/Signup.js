@@ -100,7 +100,7 @@ const Signup = () => {
             </p>
 
 
-            <h1>Ответ сервера: {serverResponse.message}</h1>
+            {/*<h1>Ответ сервера: {serverResponse.message}</h1>*/}
         </div>
     );
 };

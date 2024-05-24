@@ -38,6 +38,7 @@ const Signin = () => {
             <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
             <input type="password" value={password} id="password"
                    onChange={event => setPassword(event.target.value)}/>
+            <br></br>
             <button
                 onClick={() => postSignInData(login, password)}>
                 Войти
