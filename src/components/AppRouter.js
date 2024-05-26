@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
-import Ad from "../pages/Ad";
+import Search from "../pages/Search";
 import Signup from "../pages/Signup";
 import Main from "../pages/Main";
 import Signin from "../pages/Signin";
@@ -17,7 +17,11 @@ const AppRouter = () => {
                 <nav className="navbar">
                     <ul className="link-list left-links">
                         <li className="nav-item left-link">
-                            <Link to="/" className="nav-link main-link">Главная</Link>
+                            <Link to="/" className="nav-link main-link">
+                                <div className="logo">
+                                    <img src={"home_logo.png"} alt="Главная" height="20px" width="auto"/>
+                                </div>
+                            </Link>
                         </li>
                         <li className="nav-item left-link">
                             <Link to="/offers" className="nav-link ">Объявления</Link>
@@ -40,7 +44,7 @@ const AppRouter = () => {
                         <Route path="/" element={<Main/>}/>
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/signin" element={<Signin/>}/>
-                        <Route path="/offers" element={<Ad/>}/>
+                        <Route path="/offers" element={<Search/>}/>
                         <Route path="/offers/:id" element={<Offer/>} />
                         <Route path="/profile/*" element={<Profile/>}/>
                         <Route path="/makead" element={<MakeAd/>}/>
