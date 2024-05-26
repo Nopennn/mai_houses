@@ -118,6 +118,19 @@ div.logo {
     padding: 0;
     margin: 0;
 }
+image.profile-logo {
+    padding: 0;
+    margin: 0;
+}
+#profile-logo {
+    padding: 2px;
+    padding-bottom: 0;
+    margin: 0;
+}
+input {
+    padding: 4px;
+    margin: 5px;
+}
 
 input[type=text], input[type=password] {
     width: 80%;
