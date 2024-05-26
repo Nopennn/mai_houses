@@ -12,7 +12,7 @@ const Offer = () => {
 
     const [offerInfo, setOfferInfo] = useState([])
 
-    let offerFetch = function () {
+    const offerFetch = function () {
         let urlSplit = window.location.href.split('/');
         let offerId = urlSplit[urlSplit.length - 1]
         console.log(offerId)

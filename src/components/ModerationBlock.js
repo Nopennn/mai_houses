@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 const ModerationBlock = () => {
     const [moderationResult, setModerationResult] = useState({})
-    const [approve, setApprove] = useState(0)
+    const [approve, setApprove] = useState(1)
     const [comment, setComment] = useState("")
     const postModerationData = (approve, comment) => {
         let urlSplit = window.location.href.split('/');

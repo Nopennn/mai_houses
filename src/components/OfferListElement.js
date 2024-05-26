@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import OfferPictures from "./OfferPictures";
 
 function Images(props) {
     return (
@@ -14,7 +15,7 @@ const OfferListElement = (props) => {
         <div className="offer">
             <h1>An offer!</h1>
             <div className="offer-info">
-                <Images links={props.photo_links}/>
+                <OfferPictures links={props.photo_links}/>
                 <div className="offer-address">
                     <Link to={`/offers/${props.id}`} className="nav-link main-link">{props.address}</Link>
                 </div>

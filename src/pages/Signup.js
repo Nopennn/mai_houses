@@ -1,33 +1,52 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import '../App.css';
+import Cookies from "js-cookie";
+import imageToBase64 from 'image-to-base64/browser';
 
 const Signup = () => {
     const [serverResponse, setServerResponse] = useState({})
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const [name, setName] = useState("")
-    const [surname, setSurname] = useState("")
+    const [name, setName] = useState("none")
+    const [surname, setSurname] = useState("none")
+    const [photo, setPhoto] = useState("none")
     const [email, setEmail] = useState("none")
     const [phone, setPhone] = useState("none")
-    const [age, setAge] = useState("none")
+    const [age, setAge] = useState(18)
     const [gender, setGender] = useState("none")
     const [about, setAbout] = useState("none")
-    const [wanted, setWanted] = useState("none")
-    const postSignUpData = (login, password, name, surname, email, phone, age, gender, about, wanted) => {
+    const [lookingFor, setLookingFor] = useState("none")
+    const [tags, setTags] = useState(["none"])
+    const postSignUpData = (login, password, name, surname, photo, email, phone, age, gender, about, wanted, tags) => {
         axios.post('https://mai-houses.onrender.com/user/signup', {
             login: login,
             password: password,
             name: name,
             surname: surname,
+            photo: photo,
             email: email,
             phone: phone,
             age: age,
             gender: gender,
             about: about,
             wanted: wanted,
-            tags: []
+            tags: tags
         })
+        // axios.post('https://mai-houses.onrender.com/user/signup', {
+        //     login: "MobUser",
+        //     password: "0000",
+        //     name: "none",
+        //     surname: "none",
+        //     photo: "none",
+        //     email: "none",
+        //     phone: "none",
+        //     age: 18,
+        //     gender: "none",
+        //     about: "none",
+        //     wanted: "none",
+        //     tags: []
+        // })
             .then(function (response) {
                 setServerResponse(response.data)
                 console.log(response)
@@ -94,7 +113,7 @@ const Signup = () => {
                    onChange={event => setPassword(event.target.value)}/>
             <p>
                 <button
-                    onClick={() => postSignUpData(login, password, name, surname, email, phone, age, gender, about, wanted)}>
+                    onClick={() => postSignUpData(login, password, name, surname, photo, email, phone, age, gender, about, lookingFor, tags)}>
                     Зарегистрироваться!
                 </button>
             </p>
