@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
-import Offer from "../components/Offer";
+import OfferListElement from "../components/OfferListElement";
 
 const Moderation = () => {
     const [adsInfo, setAdsInfo] = useState([])
@@ -25,7 +25,7 @@ const Moderation = () => {
             <br></br><br></br><br></br>
             <h1>Moderation</h1>
             {adsInfo.map((offer, index) => (
-                <Offer name={offer.name} address={offer.address} price={offer.price} photo_links={offer.photo_links} key={index}/>
+                <OfferListElement name={offer.name} address={offer.adress} price={offer.price} photo_links={offer.photo_links} id={offer._id} key={index}/>
             ))}
         </div>
     );

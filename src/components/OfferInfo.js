@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function Images(props) {
     return (
@@ -8,13 +9,13 @@ function Images(props) {
         />
     );
 }
-const Offer = (props) => {
+const OfferInfo = (props) => {
     return (
         <div className="offer">
             <h1>An offer!</h1>
             <div className="offer-info">
                 <Images links={props.photo_links}/>
-                <div className="oofer-address">
+                <div className="offer-address">
                     {props.address}
                 </div>
                 <div className="offer-price">
@@ -31,4 +32,4 @@ const Offer = (props) => {
     );
 };
 
-export default Offer;
+export default OfferInfo;

@@ -8,6 +8,7 @@ import Profile from "../pages/Profile";
 import MakeAd from "../pages/MakeAd";
 import UpdateProfile from "../pages/UpdateProfile";
 import Moderation from "../pages/Moderation";
+import Offer from "../pages/Offer";
 
 const AppRouter = () => {
     return (
@@ -19,7 +20,7 @@ const AppRouter = () => {
                             <Link to="/" className="nav-link main-link">Главная</Link>
                         </li>
                         <li className="nav-item left-link">
-                            <Link to="/ad" className="nav-link ">Объявления</Link>
+                            <Link to="/offers" className="nav-link ">Объявления</Link>
                         </li>
                     </ul>
 
@@ -39,11 +40,13 @@ const AppRouter = () => {
                         <Route path="/" element={<Main/>}/>
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/signin" element={<Signin/>}/>
-                        <Route path="/ad" element={<Ad/>}/>
+                        <Route path="/offers" element={<Ad/>}/>
+                        <Route path="/offers/:id" element={<Offer/>} />
                         <Route path="/profile/*" element={<Profile/>}/>
                         <Route path="/makead" element={<MakeAd/>}/>
                         <Route path="/profileupd" element={<UpdateProfile/>}/>
                         <Route path="/moderation" element={<Moderation/>}/>
+
                     </Routes>
                 </main>
             </Router>

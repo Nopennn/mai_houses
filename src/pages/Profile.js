@@ -13,7 +13,7 @@ const Profile = () => {
         })
             .then(function (response) {
                 Cookies.set("user_id", response.data._id, { expires: 7 })
-
+                Cookies.set("user_role", response.data.role, { expires: 7 })
                 console.log(response);
                 setUserInfo(response.data)
             })

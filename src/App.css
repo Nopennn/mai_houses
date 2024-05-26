@@ -61,6 +61,31 @@ button:hover {
     background-color: blue;
     border-color: blue;
 }
+button.moderation-approve {
+    font-weight: bold;
+    margin: 5px;
+    color: #118400;
+    border-color: #118400;
+    background-color: #ffffff;
+    transition: all .2s linear;
+}
+button.moderation-approve:hover {
+    background-color: #118400;
+    color: #ffffff;
+}
+button.moderation-reject {
+    font-weight: bold;
+    margin: 5px;
+    color: #be0000;
+    border-color: #be0000;
+    background-color: #ffffff;
+    transition: all .2s linear;
+}
+button.moderation-approve:hover {
+    background-color: #118400;
+    color: #ffffff;
+}
+
 p.description {
     font-weight: bold;
     font-size: larger;
@@ -80,6 +105,14 @@ div.signin {
     margin-top: 50px;
     font-size: larger;
     text-align: center;
+}
+div.moderation-block {
+    padding: 12px 20px;
+    padding-top: 0;
+    margin: 15px;
+    border: 5px solid;
+    border-radius: 12px;
+    border-color: #FF8959;
 }
 
 input[type=text], input[type=password] {
