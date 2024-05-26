@@ -9,7 +9,36 @@ import MakeAd from "../pages/MakeAd";
 import UpdateProfile from "../pages/UpdateProfile";
 import Moderation from "../pages/Moderation";
 import Offer from "../pages/Offer";
+import Cookies from "js-cookie";
 
+
+const authButtons = () => {
+    return (
+        <ul className="link-list right-links">
+            <li className="nav-item right-link">
+                <Link to="/signin" className="nav-link">Войти</Link>
+            </li>
+
+            <li className="nav-item right-link">
+                <Link to="/signup" className="nav-link">Зарегистрироваться</Link>
+            </li>
+        </ul>
+    )
+}
+const profileLogo = () => {
+    return (
+        <ul className="link-list right-links">
+            <li className="nav-item right-link">
+                <Link to="/profile" className="nav-link" id="profile-logo">
+                    <div className="logo">
+                        <img src={"profile_logo.png"} alt="Профиль" height="30px" width="auto"/>
+                    </div>
+                </Link>
+            </li>
+
+        </ul>
+    )
+}
 const AppRouter = () => {
     return (
         <div>
@@ -27,16 +56,8 @@ const AppRouter = () => {
                             <Link to="/offers" className="nav-link ">Объявления</Link>
                         </li>
                     </ul>
+                    {Cookies.get("auth_token") ? profileLogo() : authButtons()}
 
-                    <ul className="link-list right-links">
-                        <li className="nav-item right-link">
-                            <Link to="/signin" className="nav-link">Войти</Link>
-                        </li>
-
-                        <li className="nav-item right-link">
-                            <Link to="/signup" className="nav-link">Зарегистрироваться</Link>
-                        </li>
-                    </ul>
                 </nav>
                 <br/><br/>
                 <main>

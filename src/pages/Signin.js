@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const Signin = () => {
+
+const SigninForm = () => {
     const [serverResponse, setServerResponse] = useState({})
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
@@ -12,6 +13,7 @@ const Signin = () => {
             password: password
         })
             .then(function (response) {
+                window.location.href = "/profile";
                 console.log(login)
                 setServerResponse(response.data)
                 console.log(response)
@@ -31,9 +33,7 @@ const Signin = () => {
             });
     }
     return (
-        <div className="signin">
-            <br></br><br></br><br></br><br></br>
-            Вход
+        <div>
             <br></br>
             <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
             <input type="password" value={password} id="password"
@@ -45,6 +45,26 @@ const Signin = () => {
             </button>
 
             <h1>Ответ сервера: {serverResponse.message}</h1>
+        </div>
+    )
+}
+
+const Authorised = () => {
+    return (
+        <div>
+            <h2>Вы авторизированы!</h2>
+        </div>
+    )
+}
+
+const Signin = () => {
+
+    return (
+        <div className="signin">
+            <br></br><br></br><br></br><br></br>
+            Вход
+            {Cookies.get("auth_token") ? Authorised() : SigninForm()}
+
         </div>
     );
 };

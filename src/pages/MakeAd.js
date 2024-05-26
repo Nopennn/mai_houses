@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
+import imageToBase64 from "image-to-base64/browser";
+import OfferListElement from "../components/OfferListElement";
 
 const MakeAd = () => {
     const [serverResponse, setServerResponse] = useState({})
@@ -10,7 +12,24 @@ const MakeAd = () => {
     const [price, setPrice] = useState("")
     const [type, setType] = useState("")
     const [about, setAbout] = useState("")
+    const [pictures, setPictures] = useState({})
+    const [base64Pictures, setBase64Pictures] = useState([])
+
+    // const fileSelector = document.getElementById('file-selector');
+    // fileSelector.addEventListener('change', (event) => {
+    //
+    // });
+
+    const  encodePictures = (pictureList) => {
+        console.log(Array.from(pictureList))
+        Array.from(pictureList).forEach((picture) => {
+            base64Pictures.push(imageToBase64(picture))
+        })
+        console.log(base64Pictures)
+    }
     const postAdData = (price, type, address, tags, about, photo_links) => {
+        console.log("Posting...")
+        console.log(Cookies.get("auth_token"))
         axios.post('https://mai-houses.onrender.com/houses/create', {
             token: Cookies.get("auth_token"),
             price: price,
@@ -18,7 +37,7 @@ const MakeAd = () => {
             type: "housing",
             tags: [],
             about: about,
-            photo_links: []
+            photo_links: photo_links
         })
             .then(function (response) {
                 setServerResponse(response.data)
@@ -41,9 +60,17 @@ const MakeAd = () => {
                    onChange={event => setType(event.target.value)}/>
             <input type="text" value={about} id="about" placeholder="О жилье"
                    onChange={event => setAbout(event.target.value)}/>
+            <input type="file" id="file-selector" multiple accept=".jpg, .jpeg, .png"
+                   onChange={event => {
+                       const fileList = event.target.files;
+                       console.log(fileList);
+                       setPictures(event.target.files)
+                       encodePictures(event.target.files)
+                   }}
+            />
             <p>
                 <button
-                    onClick={() => postAdData(price, type, address, [], about, [])}>
+                    onClick={() => postAdData(price, type, address, [], about, base64Pictures)}>
                     Разместить
                 </button>
             </p>
