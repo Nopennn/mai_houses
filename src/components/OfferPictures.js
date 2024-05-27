@@ -16,7 +16,7 @@ const OfferPictures = (props) => {
             <div className="side-pictures">
                 {side_pictures.map((picture, index) => (
                     <img className="side-offer-images"
-                         src={picture}
+                         src={props.links[0]}
                          alt={"pic"}
                          key={index}
                     />

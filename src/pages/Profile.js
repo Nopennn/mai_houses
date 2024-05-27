@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const Profile = () => {
+    useEffect(() => {
+        profileFetch();
+    }, []);
 
     const [userInfo, setUserInfo] = useState({key: "valueeee"})
 
-    window.onload = function () {
+    const profileFetch = function () {
         axios.post('https://mai-houses.onrender.com/user/profile', {
             token: Cookies.get("auth_token")
         })
@@ -25,7 +28,8 @@ const Profile = () => {
 
     return (
         <div>
-            Профиль
+            <br/><br/>
+            <h1>Профиль</h1>
             <h1>{userInfo.login}</h1>
 
             <ul className="link-list right-links">
@@ -35,6 +39,10 @@ const Profile = () => {
                 <li className="nav-item right-link">
                     <Link to="/profileupd" className="nav-link">Редактировать профиль</Link>
                 </li>
+                {Cookies.get("user_role") &&
+                    <li className="nav-item right-link">
+                        <Link to="/moderation" className="nav-link">Модерация</Link>
+                    </li>}
             </ul>
         </div>
     );

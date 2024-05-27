@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
-import imageToBase64 from "image-to-base64/browser";
+// import imageToBase64 from "image-to-base64/browser";
 import OfferListElement from "../components/OfferListElement";
+import async from "async";
 
 const MakeAd = () => {
     const [serverResponse, setServerResponse] = useState({})
@@ -20,16 +21,39 @@ const MakeAd = () => {
     //
     // });
 
-    const  encodePictures = (pictureList) => {
-        console.log(Array.from(pictureList))
-        Array.from(pictureList).forEach((picture) => {
-            base64Pictures.push(imageToBase64(picture))
-        })
-        console.log(base64Pictures)
+    // async function encodePictures(pictureList) {
+    //     console.log(Array.from(pictureList))
+    //     await Array.from(pictureList).forEach((picture) => {
+    //         console.log(picture)
+    //         imageToBase64(picture)
+    //             .then(
+    //                 (response) => {
+    //                     base64Pictures.push(response)
+    //                 }
+    //             )
+    //             .catch(
+    //                 (error) => {
+    //                     console.log(error);
+    //                 }
+    //             )
+    //
+    //     })
+    //     console.log(base64Pictures)
+    //     // base64Pictures.map((promise) => {
+    //     //     promise.PromiseResult
+    //     // })
+    // }
+
+    function encodeImageFileAsURL(element) {
+        let file = element.files[0];
+        let reader = new FileReader();
+        reader.onloadend = function() {
+            console.log('RESULT', reader.result)
+            base64Pictures.push(reader.result)
+        }
+        reader.readAsDataURL(file);
     }
     const postAdData = (price, type, address, tags, about, photo_links) => {
-        console.log("Posting...")
-        console.log(Cookies.get("auth_token"))
         axios.post('https://mai-houses.onrender.com/houses/create', {
             token: Cookies.get("auth_token"),
             price: price,
@@ -65,7 +89,8 @@ const MakeAd = () => {
                        const fileList = event.target.files;
                        console.log(fileList);
                        setPictures(event.target.files)
-                       encodePictures(event.target.files)
+                       encodeImageFileAsURL(event.target)
+
                    }}
             />
             <p>

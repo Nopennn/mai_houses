@@ -26,7 +26,7 @@ const Search = () => {
 
     return (
         <div>
-            <br/><br/><br/>
+            <br/><br/>
             <h1>Объявления</h1>
             {adsInfo.map((offer, index) => (
                 <OfferListElement name={offer.name} address={offer.adress} price={offer.price} photo_links={offer.photo_links} id={offer._id} key={index}/>

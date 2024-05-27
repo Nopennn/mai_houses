@@ -64,6 +64,7 @@ const ModerationBlock = () => {
                 Отклонить
             </button>
             <br/>
+            <br/>
             Комментарий:
             <br/>
             <textarea name="comment" cols="40" rows="5" value={comment} onChange={event => setComment(event.target.value)}></textarea>
