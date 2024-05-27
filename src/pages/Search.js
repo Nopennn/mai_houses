@@ -4,6 +4,14 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import OfferListElement from "../components/OfferListElement";
 
+
+const Unauthorised = () => {
+    return (
+        <div>
+            <h2>Вы не авторизированы!</h2>
+        </div>
+    )
+}
 const Search = () => {
     useEffect(() => {
         offersFetch();
@@ -28,8 +36,9 @@ const Search = () => {
         <div>
             <br/><br/>
             <h1>Объявления</h1>
-            {adsInfo.map((offer, index) => (
-                <OfferListElement name={offer.name} address={offer.adress} price={offer.price} photo_links={offer.photo_links} id={offer._id} key={index}/>
+            {Cookies.get("auth_token") ? null : Unauthorised()}
+            {adsInfo.slice(0).reverse().map((offer, index) => (
+                <OfferListElement name={offer.name} address={offer.adress} price={offer.price} photo_links={offer.photo_links} id={offer._id} key={index} about={offer.about}/>
             ))}
         </div>
     );

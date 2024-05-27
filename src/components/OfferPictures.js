@@ -10,6 +10,7 @@ const OfferPictures = (props) => {
                 <img className="main-offer-image"
                      src={props.links[0]}
                      alt={"pic"}
+                     height="150px" width="auto"
                 />
             </div>
 
@@ -19,6 +20,7 @@ const OfferPictures = (props) => {
                          src={props.links[0]}
                          alt={"pic"}
                          key={index}
+                         height="200px" width="auto"
                     />
                 ))}
             </div>

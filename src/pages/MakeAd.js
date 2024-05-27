@@ -9,9 +9,11 @@ const MakeAd = () => {
     const [serverResponse, setServerResponse] = useState({})
     const [userId, setUserId] = useState("")
     const [email, setEmail] = useState("")
+
     const [address, setAddress] = useState("")
     const [price, setPrice] = useState("")
     const [type, setType] = useState("housing")
+
     const [about, setAbout] = useState("")
     const [pictures, setPictures] = useState({})
     const [base64Pictures, setBase64Pictures] = useState([])

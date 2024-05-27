@@ -13,12 +13,15 @@ function Images(props) {
 const OfferListElement = (props) => {
     return (
         <div className="offer">
-            <h1>An offer!</h1>
             <div className="offer-info">
+                <h3>
+                    <div className="offer-address">
+                        <Link to={`/offers/${props.id}`} className="nav-link main-link">{props.address}</Link>
+                    </div>
+                </h3>
+
                 <OfferPictures links={props.photo_links}/>
-                <div className="offer-address">
-                    <Link to={`/offers/${props.id}`} className="nav-link main-link">{props.address}</Link>
-                </div>
+
                 <div className="offer-price">
                     {props.price}
                 </div>
@@ -26,7 +29,7 @@ const OfferListElement = (props) => {
 
             <div className="user-info">
                 <div className="user-name">
-                    {props.name}
+                    {props.about}
                 </div>
             </div>
         </div>

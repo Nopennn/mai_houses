@@ -28,7 +28,7 @@ const Moderation = () => {
             <br/><br/>
             <h1>Модерация</h1>
             {adsInfo.map((offer, index) => (
-                <OfferListElement name={offer.name} address={offer.adress} price={offer.price} photo_links={offer.photo_links} id={offer._id} key={index}/>
+                <OfferListElement name={offer.name} address={offer.adress} price={offer.price} photo_links={offer.photo_links} id={offer._id} key={index} about={offer.about}/>
             ))}
         </div>
     );
