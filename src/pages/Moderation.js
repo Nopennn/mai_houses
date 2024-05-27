@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import OfferListElement from "../components/OfferListElement";
 
 const Moderation = () => {
+    useEffect(() => {
+        offersFetch();
+    }, []);
     const [adsInfo, setAdsInfo] = useState([])
 
-    window.onload = function () {
+    const offersFetch = function () {
         axios.post('https://mai-houses.onrender.com/houses/in_moderation', {
             token: Cookies.get("auth_token")
         })

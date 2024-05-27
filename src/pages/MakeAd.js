@@ -11,7 +11,7 @@ const MakeAd = () => {
     const [email, setEmail] = useState("")
     const [address, setAddress] = useState("")
     const [price, setPrice] = useState("")
-    const [type, setType] = useState("")
+    const [type, setType] = useState("housing")
     const [about, setAbout] = useState("")
     const [pictures, setPictures] = useState({})
     const [base64Pictures, setBase64Pictures] = useState([])
@@ -58,7 +58,7 @@ const MakeAd = () => {
             token: Cookies.get("auth_token"),
             price: price,
             adress: address,
-            type: "housing",
+            type: type,
             tags: [],
             about: about,
             photo_links: photo_links
@@ -73,17 +73,25 @@ const MakeAd = () => {
     }
     return (
         <div className="signin">
-            <br></br><br></br><br></br><br></br>
-            Создание объявления
+            <br/><br/>
+            <h1>Создание объявления</h1>
             <br></br>
+            <input type="radio" value={type} id="housing" name="type"
+                   onChange={event => setType("person")}/>
+            <label htmlFor="housing">Сдаю жилье      </label>
+            <input type="radio" value={type} id="person" name="type"
+                   onChange={event => setType("housing")}/>
+            <label htmlFor="person">Ищу жилье</label>
+            <br/>
+            <br/>
             <input type="text" value={address} id="address" placeholder="Адрес"
                    onChange={event => setAddress(event.target.value)}/>
             <input type="number" value={price} id="price" placeholder="Цена"
                    onChange={event => setPrice(event.target.value)}/>
-            <input type="text" value={type} id="type" placeholder="housing"
-                   onChange={event => setType(event.target.value)}/>
             <input type="text" value={about} id="about" placeholder="О жилье"
                    onChange={event => setAbout(event.target.value)}/>
+            <br/>
+            <label htmlFor="file-selector">Фотографии:</label>
             <input type="file" id="file-selector" multiple accept=".jpg, .jpeg, .png"
                    onChange={event => {
                        const fileList = event.target.files;
