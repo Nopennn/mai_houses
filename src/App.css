@@ -21,7 +21,7 @@ nav.navbar {
 }
 li.nav-item {
     margin: 5px;
-    padding: 5px;
+    padding: 2px;
 }
 li.left-link {
     float: left;
@@ -130,6 +130,7 @@ image.profile-logo {
 input {
     padding: 4px;
     margin: 5px;
+    border-radius: 12px;
 }
 h1 {
     margin: 20px;

@@ -16,11 +16,15 @@ const authButtons = () => {
     return (
         <ul className="link-list right-links">
             <li className="nav-item right-link">
-                <Link to="/signin" className="nav-link">Войти</Link>
+                <Link to="/signin" className="nav-link">
+                    <div className="logo">
+                        <img src={"profile_logo.png"} alt="Профиль" height="22px" width="auto"/>
+                    </div>
+                </Link>
             </li>
 
             <li className="nav-item right-link">
-                <Link to="/signup" className="nav-link">Зарегистрироваться</Link>
+                <Link to="/signup" className="nav-link">Регистрация</Link>
             </li>
         </ul>
     )

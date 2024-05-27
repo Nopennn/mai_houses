@@ -102,9 +102,8 @@ const Signup = () => {
 
     return (
         <div className="signup">
-            <p>
-                Регистрация
-            </p>
+            <br/><br/>
+            <h1>Регистрация</h1>
 
             {/*<label htmlFor="login">Логин</label>*/}
             <input type="text" value={login} id="login" placeholder="Логин" onChange={event => setLogin(event.target.value)}/>

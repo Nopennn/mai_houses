@@ -34,15 +34,17 @@ const SigninForm = () => {
     }
     return (
         <div>
-            <br></br>
-            <input type="text" value={login} id="login" onChange={event => setLogin(event.target.value)}/>
-            <input type="password" value={password} id="password"
+            <input type="text" value={login} id="login" placeholder="Логин" onChange={event => setLogin(event.target.value)}/>
+            <input type="password" value={password} id="password" placeholder="Пароль"
                    onChange={event => setPassword(event.target.value)}/>
             <br></br>
-            <button
-                onClick={() => postSignInData(login, password)}>
-                Войти
-            </button>
+            <p>
+                <button
+                    onClick={() => postSignInData(login, password)}>
+                    Войти
+                </button>
+            </p>
+
 
             <h1>Ответ сервера: {serverResponse.message}</h1>
         </div>
@@ -61,8 +63,8 @@ const Signin = () => {
 
     return (
         <div className="signin">
-            <br></br><br></br><br></br><br></br>
-            Вход
+            <br/><br/>
+            <h1>Вход</h1>
             {Cookies.get("auth_token") ? Authorised() : SigninForm()}
 
         </div>
