@@ -129,6 +129,9 @@ div.offer {
     border-radius: 12px;
     border-color: #FF8959;
 }
+div.offer-price {
+    font-family: sans-serif;
+}
 image.profile-logo {
     padding: 0;
     margin: 0;

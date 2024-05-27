@@ -23,7 +23,9 @@ const OfferListElement = (props) => {
                 <OfferPictures links={props.photo_links}/>
 
                 <div className="offer-price">
-                    {props.price}
+                    <p>
+                        {props.price} ₽
+                    </p>
                 </div>
             </div>
 
