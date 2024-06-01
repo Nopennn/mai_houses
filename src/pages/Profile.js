@@ -32,15 +32,15 @@ const Profile = () => {
             <h1>Профиль</h1>
             <h1>{userInfo.login}</h1>
 
-            <ul className="link-list right-links">
-                <li className="nav-item right-link">
+            <ul className="link-list right-links profile-buttons">
+                <li className="nav-item right-link profile-btn">
                     <Link to="/makead" className="nav-link">Разместить объявление</Link>
                 </li>
-                <li className="nav-item right-link">
+                <li className="nav-item right-link profile-btn">
                     <Link to="/profileupd" className="nav-link">Редактировать профиль</Link>
                 </li>
                 {Cookies.get("user_role") &&
-                    <li className="nav-item right-link">
+                    <li className="nav-item right-link profile-btn">
                         <Link to="/moderation" className="nav-link">Модерация</Link>
                     </li>}
             </ul>
