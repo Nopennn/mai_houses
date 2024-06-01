@@ -65,7 +65,8 @@ const Signin = () => {
         <div className="signin">
             <br/><br/>
             <h1>Вход</h1>
-            {Cookies.get("auth_token") ? Authorised() : SigninForm()}
+            {/*{Cookies.get("auth_token") ? Authorised() : SigninForm()}*/}
+            {Cookies.get("auth_token") ? SigninForm() : SigninForm()}
 
         </div>
     );

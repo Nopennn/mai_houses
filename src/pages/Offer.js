@@ -31,7 +31,6 @@ const Offer = () => {
 
     return (
         <div>
-            Объявление
             <h1>{offerInfo.adress}</h1>
 
             <OfferInfo/>
