@@ -14,6 +14,12 @@ ul.link-list {
     padding: 0;
 }
 
+ul.profile-buttons {
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
+}
+
 nav.navbar {
     padding-top: 10px;
     margin-left: 4px;
@@ -28,6 +34,10 @@ li.left-link {
 }
 li.right-link {
     float: right;
+}
+li.profile-btn {
+    margin: 0;
+    padding: 5px;
 }
 a {
     padding: 5px;
