@@ -31,6 +31,7 @@ const Profile = () => {
             <br/><br/>
             <h1>Профиль</h1>
             <h1>{userInfo.login}</h1>
+            <h1>{userInfo.name} {userInfo.surname}</h1>
 
             <ul className="link-list right-links profile-buttons">
                 <li className="nav-item right-link profile-btn">

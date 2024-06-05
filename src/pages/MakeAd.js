@@ -9,6 +9,7 @@ const MakeAd = () => {
     const [serverResponse, setServerResponse] = useState({})
     const [userId, setUserId] = useState("")
     const [email, setEmail] = useState("")
+    const [tags, setTags] = useState([])
 
     const [address, setAddress] = useState("")
     const [price, setPrice] = useState("")
@@ -61,7 +62,7 @@ const MakeAd = () => {
             price: price,
             adress: address,
             type: type,
-            tags: [],
+            tags: tags,
             about: about,
             photo_links: photo_links
         })
@@ -90,6 +91,14 @@ const MakeAd = () => {
                    onChange={event => setAddress(event.target.value)}/>
             <input type="number" value={price} id="price" placeholder="Цена"
                    onChange={event => setPrice(event.target.value)}/>
+            <br></br>
+            Тэги через запятую
+            <br></br>
+            <input type="text" value={tags} id="tags" placeholder="МАИ,8 институт,IT,Тверь"
+                   onChange={event => {
+                       setTags(event.target.value.split(','));
+                       console.log(tags)
+                   }}/>
             <input type="text" value={about} id="about" placeholder="О жилье"
                    onChange={event => setAbout(event.target.value)}/>
             <br/>
@@ -105,7 +114,7 @@ const MakeAd = () => {
             />
             <p>
                 <button
-                    onClick={() => postAdData(price, type, address, [], about, base64Pictures)}>
+                    onClick={() => postAdData(price, type, address, tags, about, base64Pictures)}>
                     Разместить
                 </button>
             </p>

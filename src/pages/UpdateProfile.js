@@ -9,26 +9,29 @@ const UpdateProfile = () => {
     const [phone, setPhone] = useState("")
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
-    const [age, setAge] = useState("")
+    const [age, setAge] = useState(18)
     const [gender, setGender] = useState("")
-    const [tags, setTags] = useState({})
+    const [tags, setTags] = useState([])
     const [about, setAbout] = useState("")
     const [wanted, setWanted] = useState("")
     const [photo, setPhoto] = useState("")
     const postUserData = (email, phone, name, surname, age, gender, tags, about, wanted, photo) => {
+        console.log(tags)
         console.log(Cookies.get("auth_token")) // Токен есть
         axios.post('https://mai-houses.onrender.com/user/update', {
             token: Cookies.get("auth_token"),
-            email: "abarovskiy02@mail.ru",
-            phone: "79613027037",
-            name: "Blah",
-            surname: "Blah",
-            age: 10,
-            gender: "m",
-            tags: [],
-            about: "Blah",
-            wanted: "Blah",
-            photo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbroadwayacademy.com.au%2F8-things-didnt-know-shrek-musical%2Fshrek-shocked%2F&psig=AOvVaw2cxChGMrvSLCLk-iAbNLxL&ust=1715161220524000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMj9nsyf-4UDFQAAAAAdAAAAABAE",
+            login: "Nopen",
+            password: "12323232",
+            email: email,
+            phone: phone,
+            name: name,
+            surname: surname,
+            age: age,
+            gender: gender,
+            tags: tags,
+            about: about,
+            wanted: wanted,
+            photo: photo
         })
             .then(function (response) {
                 setServerResponse(response.data)
@@ -45,18 +48,25 @@ const UpdateProfile = () => {
             <br></br>
             <input type="text" value={email} id="email" placeholder="Email"
                    onChange={event => setEmail(event.target.value)}/>
+            <br></br>
             <input type="tel" value={phone} id="phone" placeholder="Телефон"
                    onChange={event => setPhone(event.target.value)}/>
+            <br></br>
             <input type="text" value={name} id="name" placeholder="Имя"
                    onChange={event => setName(event.target.value)}/>
             <input type="text" value={surname} id="surname" placeholder="Фамилия"
                    onChange={event => setSurname(event.target.value)}/>
-            <input type="text" value={age} id="age" placeholder="Возраст"
+            <input type="number" value={age} id="age" placeholder="Возраст"
                    onChange={event => setAge(event.target.value)}/>
             <input type="text" value={gender} id="gender" placeholder="Пол"
                    onChange={event => setGender(event.target.value)}/>
-            <input type="text" value={tags} id="tags" placeholder="Тэги"
-                   onChange={event => setTags(event.target.value)}/>
+            <br></br>
+            Тэги через запятую
+            <br></br>
+            <input type="text" value={tags} id="tags" placeholder="МАИ,8 институт,IT,Тверь"
+                   onChange={event => {
+                       setTags(event.target.value.split(','));
+                   }}/>
             <input type="text" value={about} id="about" placeholder="О себе"
                    onChange={event => setAbout(event.target.value)}/>
             <input type="text" value={wanted} id="wanted" placeholder="Что ищу"
