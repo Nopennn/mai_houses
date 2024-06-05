@@ -10,6 +10,7 @@ import UpdateProfile from "../pages/UpdateProfile";
 import Moderation from "../pages/Moderation";
 import Offer from "../pages/Offer";
 import Cookies from "js-cookie";
+import DeleteAd from "../pages/DeleteAd";
 
 
 const authButtons = () => {
@@ -75,6 +76,7 @@ const AppRouter = () => {
                         <Route path="/makead" element={<MakeAd/>}/>
                         <Route path="/profileupd" element={<UpdateProfile/>}/>
                         <Route path="/moderation" element={<Moderation/>}/>
+                        <Route path="/deleteoffer" element={<DeleteAd/>}/>
 
                     </Routes>
                 </main>
