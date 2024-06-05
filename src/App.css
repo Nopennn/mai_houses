@@ -198,6 +198,25 @@ input[type=text], input[type=password], input[type=number] {
 
 }
 
+
+.price-range {
+    margin: 20px 20px 20px 20px;
+}
+.slider-container {
+    width: 300px;
+    margin: 10px;
+}
+#min-price {
+    width: 30%;
+    padding: 10px;
+    margin-left: 42px;
+}
+#max-price {
+    width: 30%;
+    padding: 10px;
+    float: right;
+}
+
 /*.App-logo {*/
 /*  height: 40vmin;*/
 /*  pointer-events: none;*/
